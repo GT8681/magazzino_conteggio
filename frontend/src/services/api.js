@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-// L'URL punta al backend Express che gira sulla porta 5000
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api'
+  baseURL: import.meta.env.API_URL || 'http://localhost:5000/api'
 });
+
+
+
 
 // Prodotti
 export const getProducts = (params) => API.get('/products', { params });
